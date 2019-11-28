@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="../static/styles.css'"> -->
+    {% if css %} {{link}} {% else %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/styles.css') }}"
+    />
+    {% endif %} {% if title %}
+    <title>This - {{title}}</title>
+    {% else %}
+    <title>This test</title>
+    {% endif %}
+  </head>
+  <body>
+    <div class="header">
+      <!-- <a href="index.html"> -->
+      <h1>
+        Computational <br />
+        Comedy<br />
+        Stuff
+      </h1>
+      <!-- </a> -->
+      <h2>
+        Lan Zhang
+        <br />
+        thesis1
+      </h2>
+    </div>
+
+    <div class="wrapper">
+      <div class="item" id="empty"></div>
+      <div class="item" id="main">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+
+    <div class="footer">
+      MFA Design and Technology
+      <!-- <a href="index.html">/</a> -->
+    </div>
+
+    <!-- <div class="footerRight">
+      2019 Lan Zhang -->
+    <!-- <a href="index.html">/</a> -->
+    <!-- </div> -->
+  </body>
+</html>
