@@ -39,7 +39,7 @@
       </h2>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" onclick='changeColor("#fcba03")'>
       <div class="item" id="empty"></div>
       <div class="item" id="main">
         {% block content %}{% endblock %}
@@ -51,9 +51,6 @@
       <!-- <a href="index.html">/</a> -->
     </div>
 
-    <!-- <div class="footerRight">
-      2019 Lan Zhang -->
-    <!-- <a href="index.html">/</a> -->
-    <!-- </div> -->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
   </body>
 </html>
