@@ -7,13 +7,16 @@
 {% endfor %} {% endfor %}
 <!-- <div id="startButton"></div> -->
 <div id="UserInput">
-  <form action="" autocomplete="off">
+  <form action="" autocomplete="off" method="post">
     <!-- <input type="text" name="type here" class="textRow" id="text-row-1" /> -->
     <textarea
       name="type me"
       id="text-area"
-      placeholder="Start writing here. press ENTER when you finish."
+      placeholder='Start writing here. press "Done writing" when you finish.'
     ></textarea>
+    <button type="button" id="submit" onclick="submitInput()">
+      Done writing
+    </button>
     <button type="button" id="switch" onclick="switchTurn()">switch</button>
   </form>
 </div>

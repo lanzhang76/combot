@@ -20,9 +20,12 @@ def showwords():
 # generate
 @app.route('/generate', methods=['GET', 'POST'])
 def generateStuff():
-    if request.headers['Content-Type'] == 'application/json':
-        request_data = request.json
-        prefix = request_data["prefix"]
+    if request.method == 'GET':
+        return jsonify({'lines':  writeTojson.passGen("")})
+    elif request.method == 'POST':
+        if request.headers['Content-Type'] == 'application/json':
+            request_data = request.json
+            prefix = request_data["prefix"]
         return jsonify({'lines':  writeTojson.passGen(prefix)})
     else:
         return "415 Unsupported Media Type ;)"

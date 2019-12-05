@@ -64,4 +64,4 @@ def userAdd(request_data):
     num = lenList()
     newline = {num: send}
     data = updateList(newline)
-    return data
+    return jsonify(data)
