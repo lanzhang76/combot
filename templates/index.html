@@ -1,8 +1,21 @@
 {% extends "layout.html" %}
 <!-- <link rel="stylesheet" href="./static/styles.css') }}"> -->
 {% block content %} {% for post in posts %} {% for l in post %}
-<h2>{{ post[l]['line'] }}</h2>
+<h2>
+  <span id="turn">{{ post[l]['turn'] }} </span> {{": " + post[l]['line'] }}
+</h2>
 {% endfor %} {% endfor %}
 <!-- <div id="startButton"></div> -->
-<button onclick="enable()">Click me</button>
+<div id="UserInput">
+  <form action="" autocomplete="off">
+    <!-- <input type="text" name="type here" class="textRow" id="text-row-1" /> -->
+    <textarea
+      name="type me"
+      id="text-area"
+      placeholder="Start writing here. press ENTER when you finish."
+    ></textarea>
+    <button type="button" id="switch" onclick="switchTurn()">switch</button>
+  </form>
+</div>
+
 {% endblock content %}
