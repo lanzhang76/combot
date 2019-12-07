@@ -1,4 +1,4 @@
-function httpGetAsync(theUrl, callback) {
+function httpGetAsync(theUrl) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
@@ -8,12 +8,7 @@ function httpGetAsync(theUrl, callback) {
   xmlHttp.send(null);
 }
 
-// currentURL = "http://127.0.0.1:5000/generate";
-// httpGetAsync(currentURL, function(response) {
-//   //alert(response["lines"]);
-//   console.log(response);
-// });
-// httpGetAsync("http://127.0.0.1:5000/generate", function(response) {
-//   console.log(response);
-//   location.reload();
-// });
+// function switchTurn() {
+//   theURL = "http://127.0.0.1:5000/generate";
+//   swicthSubmit(theURL);
+// }

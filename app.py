@@ -21,7 +21,7 @@ def showwords():
 @app.route('/generate', methods=['GET', 'POST'])
 def generateStuff():
     if request.method == 'GET':
-        return jsonify({'lines':  writeTojson.passGen("")})
+        return "hello"
     elif request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
             request_data = request.json
@@ -29,6 +29,11 @@ def generateStuff():
         return jsonify({'lines':  writeTojson.passGen(prefix)})
     else:
         return "415 Unsupported Media Type ;)"
+
+
+@app.route('/lastline', methods=['GET'])
+def lastline():
+    return writeTojson.endlistGenerate()
 
 
 # write to the list

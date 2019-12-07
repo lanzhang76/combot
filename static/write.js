@@ -1,5 +1,15 @@
-var userWrote = false;
-var currentUserInput = "what up";
+currentUserInput = "";
+var prefix = {
+  changePrefix: function(input, content) {
+    input = content;
+    console.log(input);
+  },
+  givePrefix: function(input) {
+    inp = input;
+    console.log(inp);
+    return inp;
+  }
+};
 
 //POST function
 function submitWrite(writeData, writeURL) {
@@ -27,8 +37,6 @@ function submitInput() {
     turn: "hilarious human",
     line: lineTotal
   };
-  currentUserInput = lineTotal;
-  console.log(currentUserInput);
   submitWrite(writeData, theURL);
 }
 
@@ -40,7 +48,7 @@ function submitGenerate(writeData, writeURL) {
       console.log(this.responseText);
       location.reload();
     } else {
-      console.log("it's not ready yet");
+      console.log("POST in not ready yet");
       document.getElementById("loadZone").style.display = "block";
     }
   };
@@ -49,11 +57,26 @@ function submitGenerate(writeData, writeURL) {
   xmlhttp.send(JSON.stringify(writeData));
 }
 
+function swicthSubmit() {
+  theURL = "http://127.0.0.1:5000/lastline";
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("loadZone").style.display = "none";
+      console.log(this.responseText);
+      switchTurn(this.responseText);
+    } else {
+      console.log("it's not ready yet");
+      document.getElementById("loadZone").style.display = "block";
+    }
+  };
+  xmlhttp.open("GET", theURL, true); // true for asynchronous
+  xmlhttp.send(null);
+}
+
 //user input turns into for generator's perfix POST Reuqest
-function switchTurn() {
-  console.log(currentUserInput);
-  var userInput = currentUserInput;
-  dataToSend = { prefix: userInput };
+function switchTurn(inputText) {
+  dataToSend = { prefix: inputText };
   theURL = "http://127.0.0.1:5000/generate";
   submitGenerate(dataToSend, theURL);
 }

@@ -29,6 +29,13 @@ def lenList():
 # append new info to the current json
 
 
+def thelastInput():
+    # with open(filename) as blog_file:
+    #     data = json.load(blog_file)
+    # lines = [data]
+    pass
+
+
 def updateList(newline):
     with open('static/store.json', 'r') as f:
         currentList = json.load(f)
@@ -42,10 +49,19 @@ def updateList(newline):
 # pass the generated content to update
 
 
+def endlistGenerate():
+    num = lenList()
+    ind = str(int(num)-1)
+    with open('static/store.json', 'r') as f:
+        currentList = json.load(f)
+    prefix = currentList[ind]['line']
+    return prefix
+
+
 def passGen(prefix):
-    text = generate.generateOutput(prefix, 100)
-    textClean = text[0].strip(prefix)
-    textClean = textClean.replace('\n', '')
+    text = generate.generateOutput(prefix, 250)
+    #textClean = text[0].strip(prefix)
+    textClean = text[0].replace('\n', '')
     post = {'turn': "com-com agent",
             'line': textClean}
     num = lenList()

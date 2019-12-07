@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   font-family: "Roboto Mono", sans-serif;
+  overflow: auto;
 }
 
 body {
@@ -15,6 +16,8 @@ body {
   font-family: "Roboto Mono", sans-serif;
   font-size: 0.7em;
   width: 16%;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 .header a {
@@ -22,6 +25,8 @@ body {
 }
 
 .wrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
   display: grid;
   margin-right: 2em;
   grid-gap: 10px;
@@ -242,5 +247,13 @@ button {
     font-size: 0.9em;
     font-family: "Roboto Mono", monospace;
     border: none;
+  }
+  #loadZone h2 {
+    margin-top: 30px;
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+    color: bisque;
+    font-size: 1em;
   }
 }
