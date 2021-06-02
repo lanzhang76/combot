@@ -266,7 +266,7 @@ traitlets==4.3.3
 umap-learn==0.3.10
 unicodecsv==0.14.1
 Unidecode==1.1.1
-urllib3==1.24.2
+urllib3==1.26.5
 virtualenv==16.7.8
 w3lib==1.21.0
 wasabi==0.4.0
